@@ -1,3 +1,4 @@
+require('babel-register');
 import ReactDOM from 'react-dom';
 import BlogPage from './components/containers/BlogPage';
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import BlogItem from '../ui/BlogItem';
 
+
 export default class BlogList extends Component {
 
     render() {
@@ -16,7 +17,7 @@ export default class BlogList extends Component {
         const result = items.map((item, key) => {
             return (
                 <li style={{"listStyleType" :"none"}} key={key}>
-                    {<BlogItem textBoxContent={item.textBoxContent} imgAttr={item.imgAttr}/>}
+                    {<BlogItem content={item}/>}
                 </li>)
         });
 

@@ -2,13 +2,19 @@ import React from 'react';
 import TextBox from './TextBox';
 import Image from './Image';
 
-const BlogItem = (props)=>(
+
+const BlogItem = ({content})=>(
     <div>
-        <TextBox content={props.textBoxContent}/>
-        <Image attr={props.imgAttr}/>
+        <TextBox title={content.title}/>
+        <Image src={content.image.src}
+               alt={content.image.alt}
+               style={content.image.style}
+               />
     </div>
 );
 
 export default BlogItem;
+
+
 
 
