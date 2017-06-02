@@ -13,7 +13,11 @@ class Likes extends Component{
 
     render(){
         return(
-            <div onClick={this.handleClick} style={{border: "1px solid green",  width: '70px'}}>
+            <div onClick={this.handleClick}
+                 style={{
+                 border: "1px solid green",
+                 width: '70px',
+                 cursor: 'pointer'}}>
                 {`likes: ${this.state.amount}`}
             </div>
         )
