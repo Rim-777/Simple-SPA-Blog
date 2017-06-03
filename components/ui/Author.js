@@ -1,11 +1,18 @@
 import React from 'react';
 
 
-const Author = ({data}) =>(
+const Author = ({firstName, lastName}) =>(
     <span>
-        {`Author: ${data && data.firstName} ${data && data.lastName}`}
+        {`Author: ${firstName || ''} ${lastName || ''}`}
     </span>
 );
+
+
+Author.propTypes = {
+    firstName: React.PropTypes.string.isRequired,
+    lastName: React.PropTypes.string.isRequired
+};
+
 
 export default Author;
 

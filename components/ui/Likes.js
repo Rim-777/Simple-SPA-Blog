@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 class Likes extends Component{
     constructor(props){
         super(props);
-        this.state = {amount: this.props.amount || 0}
+        this.state = {amount: this.props.amount}
     }
 
     handleClick = (e) => {
@@ -22,6 +22,11 @@ class Likes extends Component{
             </div>
         )
     }
+};
+
+
+Likes.defaultProps = {
+    amount = 0
 };
 
 

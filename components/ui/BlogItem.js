@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from './Container';
 import Author from './Author';
 import TextBox from './TextBox';
 import Image from './Image';
@@ -6,47 +7,44 @@ import Likes from './Likes';
 import Timestamps from './Timestamps';
 
 
-const BlogItem = (props)=>{
-    const {content} = props;
-    const {metaData, image} = content;
+const BlogItem = ({item})=> {
 
-    return(
-        <div id={metaData && metaData.id } className='blogItem' style={{border: "1px solid green"}}>
-            <Author data={metaData.author}/>
-            <TextBox title={content.title}/>
+    const {
+        title,
+        metaData: {
+            id = 0,
+            author: {firstName, lastName} = {},
+            timestamps: { createdAt, updatedAt } = {},
+            },
+        image,
+        likes
+        } = item || {};
+
+    return (
+        <Container id={id}>
+            <Author firstName={firstName} lastName={lastName}/>
+            <TextBox title={title}/>
             <Image src={image && image.src}
                    alt={image &&image.alt}
                    style={image && image.style}
-                /><br/>
-            <Likes amount={content.likes}/>
-            <Timestamps dateTime={metaData && metaData.timestamps}/>
+                />
+            <Likes amount={likes}/>
+            <Timestamps createdAt={createdAt} updatedAt={updatedAt}/>
             <br/>
-        </div>
+        </Container>
     )
 };
 
 
 BlogItem.propTypes = {
-    content: React.PropTypes.shape({
-        metaData: React.PropTypes.shape({
-            id: React.PropTypes.number.isRequired,
-            author:React.PropTypes.shape({
-                firstName: React.PropTypes.string.isRequired,
-                lastName: React.PropTypes.string.isRequired
-            }),
-            timestamps: React.PropTypes.shape({
-                created_at: React.PropTypes.string,
-                updated_at: React.PropTypes.string
-            })
+    item: PropTypes.shape({
+        metaData: PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            author: PropTypes.shape(Author.propTypes),
+            timestamps: PropTypes.shape(Timestamps.propTypes)
         }),
-        title: React.PropTypes.string.isRequired,
-        image:React.PropTypes.shape({
-            src: React.PropTypes.string.isRequired,
-            alt: React.PropTypes.string,
-            style: React.PropTypes.shape({
-                width: React.PropTypes.string.isRequired,
-                height: React.PropTypes.string})
-        })
+        title: PropTypes.string.isRequired,
+        image: PropTypes.shape(Image.propTypes).isRequired
     }).isRequired
 };
 

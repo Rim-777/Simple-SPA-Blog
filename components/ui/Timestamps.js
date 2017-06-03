@@ -1,16 +1,31 @@
 import React from 'react';
 import moment from 'moment';
 
-const Timestamps = ({dateTime})=>(
-    <div style={{fontSize: "0.7em"}}>
-    <span>
-          {`created at: ${dateTime && moment(dateTime.createdAt).format('MM/DD/YYYY hh:mm') || ''}`}
-     </span>
-        <br/>
-     <span>
-          {`last update: ${dateTime && moment(dateTime.updatedAt).format('MM/DD/YYYY hh:mm') || ''}`}
-     </span>
-    </div>
-);
+
+const Timestamps = ({createdAt, updatedAt })=> {
+
+    _formatDate = (date) => {
+        return (date && moment(date).format('MM/DD/YYYY hh:mm') || '')
+    };
+
+    return (
+        <div style={{fontSize: "0.7em"}}>
+           <span>
+              {`created at: ${_formatDate(createdAt)}`}
+           </span>
+            <br/>
+           <span>
+              {`last update: ${_formatDate(updatedAt)}`}
+           </span>
+        </div>
+    );
+};
+
+
+Timestamps.propTypes = {
+    created_at: PropTypes.string.isRequired,
+    updated_at: PropTypes.string
+};
+
 
 export default  Timestamps;
