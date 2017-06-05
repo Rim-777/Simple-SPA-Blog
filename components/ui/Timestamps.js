@@ -5,7 +5,7 @@ import moment from 'moment';
 const Timestamps = ({createdAt, updatedAt })=> {
 
     _formatDate = (date) => {
-        return (date && moment(date).format('MM/DD/YYYY hh:mm') || '')
+        return (date && moment(date).format('MM/DD/YYYY hh:mm'))
     };
 
     return (
@@ -15,7 +15,7 @@ const Timestamps = ({createdAt, updatedAt })=> {
            </span>
             <br/>
            <span>
-              {`last update: ${_formatDate(updatedAt)}`}
+              {`last update: ${_formatDate(updatedAt || createdAt )}`}
            </span>
         </div>
     );
@@ -23,8 +23,8 @@ const Timestamps = ({createdAt, updatedAt })=> {
 
 
 Timestamps.propTypes = {
-    created_at: PropTypes.string.isRequired,
-    updated_at: PropTypes.string
+    CreatedAt: PropTypes.string.isRequired,
+    UpdatedAt: PropTypes.string
 };
 
 
