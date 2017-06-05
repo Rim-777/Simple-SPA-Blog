@@ -15,7 +15,7 @@ const Timestamps = ({createdAt, updatedAt })=> {
            </span>
             <br/>
            <span>
-              {`last update: ${_formatDate(updatedAt || createdAt )}`}
+              {`last update: ${_formatDate(updatedAt || createdAt)}`}
            </span>
         </div>
     );
