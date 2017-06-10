@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import BlogList from './BlogList.js'
+import BlogList from './BlogList.js';
+import PieChart from '../ui/PieChart';
 
 
 let items = [
@@ -20,7 +21,8 @@ let items = [
             src: 'http://res.cloudinary.com/dp29wtibh/image/upload/v1495305467/kdescji39olekozodulg.jpg',
             alt: 'some text',
             style: {width: '150px', height: 'auto'}
-        }
+        },
+        likes: 10
     },
     {
         metaData: {
@@ -34,7 +36,8 @@ let items = [
             src: 'http://res.cloudinary.com/dp29wtibh/image/upload/v1495305250/h3xusb4q4ekcz2s8rdxd.jpg',
             alt: 'some text',
             style: {width: '150px', height: 'auto'}
-        }
+        },
+        likes: 10
 
     },
     {
@@ -50,16 +53,37 @@ let items = [
             alt: 'some text',
             style: {width: '150px', height: 'auto'}
         },
-        likes: 100
+        likes: 10
     }
 ];
 
 
-const BlogPage = ()=>(
-    <div className="blogPageContainer">
-        <BlogList items={items}/>
-    </div>
-);
+class BlogPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {items}
+    }
+
+    addLike = (itemId) => {
+        const updatedItems = this.state.items.map((item)=> {
+            if (item.metaData.id === itemId) item.likes++;
+            return item
+        });
+
+        this.setState({items: updatedItems})
+    };
+
+
+    render() {
+        const {items} = this.state;
+        return (
+            <div className="blogPageContainer">
+                <BlogList items={items} addLike={this.addLike}/>
+                <PieChart columns={items.map((item)=>[item.title, item.likes])}/>
+            </div>
+        )
+    }
+}
 
 export default BlogPage;
 

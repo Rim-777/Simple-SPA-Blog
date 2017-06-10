@@ -2,7 +2,19 @@ import React, {Component} from 'react';
 import BlogItem from '../ui/BlogItem';
 
 
-export default class BlogList extends Component {
+export default class BlogList extends React.Component {
+
+    getList() {
+        const {items, addLike} = this.props;
+        const result = items.map((item) => {
+            return (
+                <li style={{"listStyleType" :"none"}} key={item.metaData.id}>
+                    {<BlogItem item={item} addLike={addLike}/>}
+                </li>)
+        });
+
+        return result;
+    }
 
     render() {
         return (
@@ -10,17 +22,5 @@ export default class BlogList extends Component {
                 {this.getList()}
             </ul>
         )
-    }
-
-    getList() {
-        const {items} = this.props;
-        const result = items.map((item, key) => {
-            return (
-                <li style={{"listStyleType" :"none"}} key={key}>
-                    {<BlogItem content={item}/>}
-                </li>)
-        });
-
-        return result;
     }
 }

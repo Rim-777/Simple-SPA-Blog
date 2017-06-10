@@ -7,7 +7,7 @@ import Likes from './Likes';
 import Timestamps from './Timestamps';
 
 
-const BlogItem = ({item})=> {
+const BlogItem = ({item, addLike})=> {
 
     const {
         title,
@@ -28,8 +28,9 @@ const BlogItem = ({item})=> {
                    alt={image &&image.alt}
                    style={image && image.style}
                 />
-            <Likes amount={likes}/>
+            <Likes amount={likes} addLike={addLike} itemId={id}/>
             <Timestamps createdAt={createdAt} updatedAt={updatedAt}/>
+
             <br/>
         </Container>
     )
