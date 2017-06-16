@@ -1,3 +1,4 @@
 {
-presets:["es2015", "react", "latest"]
+presets:["es2015", "react", "latest"],
+plugins: ["react-hot-loader/babel"]
 }

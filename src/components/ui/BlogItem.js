@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Container from './Container';
 import Author from './Author';
 import TextBox from './TextBox';
 import Image from './Image';
 import Likes from './Likes';
 import Timestamps from './Timestamps';
+import { pick } from 'lodash/object';
 
 
 const BlogItem = ({item, addLike})=> {
@@ -24,10 +26,7 @@ const BlogItem = ({item, addLike})=> {
         <Container id={id}>
             <Author firstName={firstName} lastName={lastName}/>
             <TextBox title={title}/>
-            <Image src={image && image.src}
-                   alt={image &&image.alt}
-                   style={image && image.style}
-                />
+            <Image {...pick(image, ['src', 'width', 'style'])} />
             <Likes amount={likes} addLike={addLike} itemId={id}/>
             <Timestamps createdAt={createdAt} updatedAt={updatedAt}/>
 

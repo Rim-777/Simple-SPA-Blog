@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
+import Button from 'react-mdl/lib/Button';
 
 
 const Likes = ({addLike, itemId, amount}) =>{
 
     return(
-        <div onClick={()=> addLike(itemId)}
-             style={{border: "1px solid green",
-             width: '70px',
+        <Button onClick={()=> addLike(itemId)}
+             style={{border: '1px solid green',
+             width: 'auto',
              cursor: 'pointer'}}>
             {`likes: ${amount}`}
-        </div>
+        </Button>
     )
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const Author = ({firstName, lastName}) => {
@@ -14,10 +15,9 @@ const Author = ({firstName, lastName}) => {
 
 
 Author.propTypes = {
-    firstName: React.PropTypes.string.isRequired,
-    lastName: React.PropTypes.string.isRequired
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired
 };
 
 
 export default Author;
-
