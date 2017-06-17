@@ -3,8 +3,6 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const root = path.join(process.cwd(), 'src');
-
 module.exports = {
     entry: [
         'react-hot-loader/patch',

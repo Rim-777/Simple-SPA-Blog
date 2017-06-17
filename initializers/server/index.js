@@ -10,7 +10,7 @@ const server = new webpackDevServer(webpack(config), {
     hot: true,
     publicPath: config.output.publicPath,
     stats: {
-        collor: true
+        color: true
     }
 
 });
