@@ -1,34 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
 
-class Timestamps extends Component {
+const Timestamps = ({createdAt, updatedAt })=> {
 
-    constructor(props){
-        super(props);
-        this._formatDate = this._formatDate.bind(this);
-    }
-
-    _formatDate(date) {
+    _formatDate = (date) => {
         return (date && moment(date).format('MM/DD/YYYY hh:mm'))
-    }
+    };
 
-    render() {
-        const {createdAt, updatedAt } = this.props;
-        return (
-            <div style={{fontSize: '0.7em'}}>
+    return (
+        <div style={{fontSize: "0.7em"}}>
            <span>
-              {`created at: ${this._formatDate(createdAt)}`}
+              {`created at: ${_formatDate(createdAt)}`}
            </span>
-                <br/>
+            <br/>
            <span>
-              {`last update: ${this._formatDate(updatedAt || createdAt)}`}
+              {`last update: ${_formatDate(updatedAt || createdAt)}`}
            </span>
-            </div>
-        );
-    }
-}
+        </div>
+    );
+};
+
 
 
 Timestamps.propTypes = {

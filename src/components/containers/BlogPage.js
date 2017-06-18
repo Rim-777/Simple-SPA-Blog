@@ -6,7 +6,6 @@ class BlogPage extends Component {
     constructor(props) {
         super(props);
         this.state = {items};
-        this.addLike = this.addLike.bind(this);
     }
 
     render() {
@@ -18,7 +17,7 @@ class BlogPage extends Component {
         )
     }
 
-    addLike(itemId){
+    addLike = (itemId) =>{
         const updatedItems = this.state.items.map((item)=> {
             if (item.metaData.id === itemId) item.likes++;
             return item
