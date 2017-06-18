@@ -17,7 +17,7 @@ const items = [
             alt: 'some text',
             style: {width: '150px', height: 'auto'}
         },
-        likes: 10
+        likes: 100
     },
     {
         metaData: {
