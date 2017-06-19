@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import BlogList from './../ui/BlogList.js';
+import BlogList from 'components/ui/BlogList.js';
 import items from '../../fixtures/items';
 
 class BlogPage extends Component {

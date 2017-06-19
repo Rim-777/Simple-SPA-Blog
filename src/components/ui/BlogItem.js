@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { pick } from 'lodash/object';
 import Container from './Container';
 import Author from './Author';
 import TextBox from './TextBox';
 import Image from './Image';
 import Likes from './Likes';
 import Timestamps from './Timestamps';
-import { pick } from 'lodash/object';
 
 
 const BlogItem = ({item, addLike})=> {
