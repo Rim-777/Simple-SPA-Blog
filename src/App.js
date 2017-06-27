@@ -1,6 +1,7 @@
 import React from 'react';
 
-import BlogPage from 'components/containers/BlogPage';
+import Paginator from 'components/containers/Paginator';
+import PostsPage from 'components/containers/PostsPage';
 import PostPage from 'components/containers/PostPage';
 import AboutPage from 'components/containers/AboutPage';
 import MainLayout from 'components/layouts/MainLayout'
@@ -15,9 +16,9 @@ const App = () => (
     <Router history={history}>
         <MainLayout>
             <Switch>
-                <Route exact path="/" component={BlogPage}/>
-                <Route exact path="/:pageNumber?" render={({match}) => (
-                <BlogPage pageNumber={match.params.pageNumber}/>
+                <Route exact path="/" component={PostsPage}/>
+                <Route exact path="/page/:pageNumber" render={({match}) => (
+                <Paginator pageNumber={match.params.pageNumber}/>
 
                 )} />
                 <Route exact path="/posts/:id" render={({match}) => (
