@@ -1,0 +1,13 @@
+a {
+    margin: 5px;
+    color: rgba(121, 39, 39, 0.61);
+    text-decoration: none
+}
+
+a, a:visited {
+    color: #792727;
+}
+
+a.active {
+    color: #1b792a;
+}

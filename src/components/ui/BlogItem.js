@@ -7,6 +7,9 @@ import TextBox from './TextBox';
 import Image from './Image';
 import Likes from './Likes';
 import Timestamps from './Timestamps';
+import Link from 'components/ui/Link';
+
+import { postsPath } from 'helpers/routes';
 
 
 const BlogItem = ({item, addLike})=> {
@@ -25,7 +28,7 @@ const BlogItem = ({item, addLike})=> {
     return (
         <Container id={id}>
             <Author firstName={firstName} lastName={lastName}/>
-            <TextBox title={title}/>
+            <Link to={postsPath(id)}><TextBox title={title}/></Link>
             <Image {...pick(image, ['src', 'width', 'style'])} />
             <Likes amount={likes} addLike={addLike} itemId={id}/>
             <Timestamps createdAt={createdAt} updatedAt={updatedAt}/>
