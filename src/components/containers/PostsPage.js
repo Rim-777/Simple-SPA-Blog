@@ -5,7 +5,7 @@ import request from 'superagent'
 class PostsPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {items: []};
+        this.state = {items: [], limit: 3};
         this.addLike = this.addLike.bind(this);
         this.fetchPosts = this.fetchPosts.bind(this);
         this._definePageData = this._definePageData.bind(this);
@@ -22,8 +22,9 @@ class PostsPage extends Component {
 
 
     _definePageData(items) {
-        const {pageNumber , step} = this.props;
-        return items.slice(pageNumber * step - step, pageNumber * step)
+        const {pageNumber} = this.props;
+        const {limit} = this.state;
+        return items.slice(pageNumber * limit - limit, pageNumber * limit)
     }
 
 
@@ -40,16 +41,17 @@ class PostsPage extends Component {
         request.get('http://localhost:4001/',
             {},
             (err, res) => (
-                    this.setState({items: res.body})
+                    this.setState({items: res.body }),
+        this.props.buttonsAmount( res.body.length % this.state.limit == 0 ? res.body.length / this.state.limit : parseInt(res.body.length / this.state.limit + 1) )
             ))
     }
 
 
     componentDidMount() {
         this.fetchPosts();
-
-        this.props.buttonsAmount(3)
     }
+
+
 }
 
 export default PostsPage;
