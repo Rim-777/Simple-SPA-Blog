@@ -1,30 +1,22 @@
 import React, {Component} from 'react';
-import BlogList from 'components/ui/BlogList.js';
+import Paginator from 'components/containers/Paginator';
 import request from 'superagent'
 
 class PostsPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {items: [], limit: 3};
+        this.state = {items: []};
         this.addLike = this.addLike.bind(this);
         this.fetchPosts = this.fetchPosts.bind(this);
-        this._definePageData = this._definePageData.bind(this);
     }
 
     render() {
         const {items} = this.state;
         return (
             <div className="blogPageContainer">
-                <BlogList items={this._definePageData(items)} addLike={this.addLike}/>
+                <Paginator items={items} {...this.props} addLike={this.addLike}/>
             </div>
         )
-    }
-
-
-    _definePageData(items) {
-        const {pageNumber} = this.props;
-        const {limit} = this.state;
-        return items.slice(pageNumber * limit - limit, pageNumber * limit)
     }
 
 
@@ -41,13 +33,15 @@ class PostsPage extends Component {
         request.get('http://localhost:4001/',
             {},
             (err, res) => (
-                    this.setState({items: res.body }),
-        this.props.buttonsAmount( res.body.length % this.state.limit == 0 ? res.body.length / this.state.limit : parseInt(res.body.length / this.state.limit + 1) )
+                console.log(res.body),
+                    this.setState({items: res.body })
+       
             ))
     }
 
 
     componentDidMount() {
+        console.log('componentDidMount')
         this.fetchPosts();
     }
 

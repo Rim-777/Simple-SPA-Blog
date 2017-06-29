@@ -18,7 +18,7 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={PostsPage}/>
                 <Route exact path="/page/:pageNumber" render={({match}) => (
-                <Paginator pageNumber={match.params.pageNumber}/>
+                <PostsPage pageNumber={match.params.pageNumber}/>
 
                 )} />
                 <Route exact path="/posts/:id" render={({match}) => (

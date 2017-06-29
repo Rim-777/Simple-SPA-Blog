@@ -30,7 +30,8 @@ export default class PageNumerator extends Component {
 
         list.push(<Link key={0} to={this._getEdgeButtonsRout().prev}> {'<<'} </Link>);
 
-        for (let i = 1; i <= buttonsAmount; i++) {
+        for (let i = pageNumber; i <= buttonsAmount; i++) {
+            if( pageNumber > i-2) i = buttonsAmount;
             const link = <Link key={i} to={`/page/${i}`} style={ {color: `${pageNumber == i ? 'red':'blue'}`}}>{i}</Link>;
             list.push(link)
         }
