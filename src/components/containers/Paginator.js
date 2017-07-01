@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import BlogList from 'components/ui/BlogList';
 import PageNumerator from 'components/ui/PageNumerator';
 
 export default  class Paginator extends Component {
@@ -12,10 +11,10 @@ export default  class Paginator extends Component {
         };
 
         this._definePageData = this._definePageData.bind(this);
-        this.buttonsAmount = this.buttonsAmount.bind(this);
+        this._pagesAmount = this._pagesAmount.bind(this);
     }
 
-    buttonsAmount() {
+    _pagesAmount() {
         const {items} = this.props; const {limit} = this.state;
         const amount = parseInt(items.length / limit);
         return items.length % limit == 0 ? amount : amount + 1;
@@ -28,13 +27,13 @@ export default  class Paginator extends Component {
         return items.slice(pageNumber * limit - limit, pageNumber * limit);
     }
 
+
     render() {
-        const {addLike} = this.props;
         return (
             <div>
-                <PageNumerator {...this.props}  buttonsAmount={this.buttonsAmount()}/>
+                <PageNumerator {...this.props}  pagesAmount={this._pagesAmount()}/>
                 <br/>
-                <BlogList items={this._definePageData()} addLike={addLike}/>
+                <this.props.component {...this.props} items={this._definePageData()} />
             </div>
         )
     }

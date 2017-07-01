@@ -1,20 +1,24 @@
 import React, {Component} from 'react';
 import Paginator from 'components/containers/Paginator';
 import request from 'superagent'
+import BlogList from 'components/ui/BlogList';
 
 class PostsPage extends Component {
     constructor(props) {
         super(props);
+
         this.state = {items: []};
+
         this.addLike = this.addLike.bind(this);
         this.fetchPosts = this.fetchPosts.bind(this);
     }
+
 
     render() {
         const {items} = this.state;
         return (
             <div className="blogPageContainer">
-                <Paginator items={items} {...this.props} addLike={this.addLike}/>
+                <Paginator items={items} component={BlogList} {...this.props} addLike={this.addLike}/>
             </div>
         )
     }
@@ -29,19 +33,17 @@ class PostsPage extends Component {
         this.setState({items: updatedItems})
     }
 
+
     fetchPosts() {
         request.get('http://localhost:4001/',
             {},
             (err, res) => (
-                console.log(res.body),
                     this.setState({items: res.body })
-       
             ))
     }
 
 
     componentDidMount() {
-        console.log('componentDidMount')
         this.fetchPosts();
     }
 

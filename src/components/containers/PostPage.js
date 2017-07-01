@@ -14,7 +14,7 @@ class PostPage extends Component {
 
 
     fetchPost() {
-
+        console.log(this.props.id)
         request.get(`http://localhost:4001/posts/${this.props.id}`,
             {},
             (err, res)=>(
@@ -32,7 +32,6 @@ class PostPage extends Component {
         this.state.load && <BlogItem item={this.state.item}/>)
     }
 }
-
 
 export default PostPage;
 
