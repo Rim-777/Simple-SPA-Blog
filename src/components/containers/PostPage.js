@@ -4,6 +4,8 @@ import BlogItem from 'components/ui/BlogItem'
 import request from 'superagent'
 
 
+import { postsPath } from 'helpers/routes';
+
 class PostPage extends Component {
 
     constructor(props) {
@@ -14,7 +16,6 @@ class PostPage extends Component {
 
 
     fetchPost() {
-        console.log(this.props.id)
         request.get(`http://localhost:4001/posts/${this.props.id}`,
             {},
             (err, res)=>(
@@ -29,7 +30,7 @@ class PostPage extends Component {
 
     render() {
         return (
-        this.state.load && <BlogItem item={this.state.item}/>)
+        this.state.load && <BlogItem item={this.state.item} url={postsPath(this.props.id)}/>)
     }
 }
 
