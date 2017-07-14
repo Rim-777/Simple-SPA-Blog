@@ -2,7 +2,6 @@ import {assign} from 'lodash';
 import * as types from 'constants/actionTypes/PostsActionTypes';
 
 
-
 const initialState = {
     isFetching: false,
     error: false,
@@ -21,5 +20,4 @@ export default function(state = initialState, action = {}){
         default:
             return state;
     }
-
 }
