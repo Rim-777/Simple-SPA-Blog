@@ -14,6 +14,7 @@ import { postsPath } from 'helpers/routes';
 
 const BlogItem = ({item, addLike, url})=> {
 
+    console.log( item || 'NOT');
     const {
         title,
         metaData: {
@@ -25,7 +26,7 @@ const BlogItem = ({item, addLike, url})=> {
         likes
         } = item || {};
 
-    return (
+    return (item &&
         <Container id={id}>
             <Author firstName={firstName} lastName={lastName}/>
             <Link to={url}><TextBox title={title}/></Link>

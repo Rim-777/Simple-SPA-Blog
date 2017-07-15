@@ -18,7 +18,7 @@ class PostsPage extends Component {
         const {items} = this.state;
         return (
             <div className="blogPageContainer">
-                <Paginator items={items} component={BlogList} {...this.props} addLike={this.addLike}/>
+                <BlogList items={items} {...this.props} addLike={this.addLike}/>
             </div>
         )
     }
@@ -43,10 +43,9 @@ class PostsPage extends Component {
     }
 
 
-    componentDidMount() {
-        this.fetchPosts();
-    }
-
+    //componentDidMount() {
+    //    this.fetchPosts();
+    //}
 
 }
 

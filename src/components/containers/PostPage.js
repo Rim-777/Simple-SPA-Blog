@@ -25,18 +25,19 @@ class PostPage extends Component {
 
 
     componentDidMount() {
-        this.fetchPost();
+        //this.fetchPost();
     }
 
     render() {
         return (
-        this.state.load && <BlogItem item={this.state.item} url={postsPath(this.props.id)}/>)
+        //this.state.load && <BlogItem item={this.state.item} url={postsPath(this.props.id)}/>)
+        <BlogItem item={this.props.item} url={postsPath(this.props.id)}/>)
     }
 }
 
 export default PostPage;
 
 
-PostPage.propTypes = {
-    id: PropTypes.string.isRequired
-};
+//PostPage.propTypes = {
+//    id: PropTypes.string.isRequired
+//};

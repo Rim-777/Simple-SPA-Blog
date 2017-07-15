@@ -1,17 +1,32 @@
 import * as types from 'constants/actionTypes/PostsActionTypes';
+import request from 'superagent';
+
+import {API_ROOT} from 'constants/API';
 
 const fetchPostsRequest = () =>({
     type: types.FETCH_POSTS_REQUEST
 });
 
+const receivePosts = (response) =>({
+    type: types.FETCH_POSTS_SUCCESS,
+    response
+});
 
-export function fetchPosts(){
-    return (dispatch) =>{
-        dispatch(fetchPostsRequest())
-    }
+const errorPosts = () => ({
+    type: types.FETCH_POSTS_ERROR
+});
+
+export function fetchPosts() {
+    return (dispatch) => {
+        dispatch(fetchPostsRequest());
+
+
+        return request
+            .get(`${API_ROOT}/`)
+            .end((err, response)=> {
+              err ? dispatch(errorPosts()) :  dispatch(receivePosts(response.body))
+            }
+        )
+    };
 }
 
-
-export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
-export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
-export const FETCH_POSTS_ERROR = 'FETCH_POSTS_ERROR';

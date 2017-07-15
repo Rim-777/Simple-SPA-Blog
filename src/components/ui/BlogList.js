@@ -10,7 +10,7 @@ const BlogList = ({items, addLike}) => {
             {items.map(
                 (item) =>(
                     <li style={{'listStyleType' :'none'}} key={item.metaData.id}>
-                        <BlogItem item={item}  url={postsPath(+item.metaData.id)}addLike={addLike}/>
+                        <BlogItem item={item}  url={postsPath(+item.metaData.id)} addLike={addLike}/>
                     </li>)
             )
             }
