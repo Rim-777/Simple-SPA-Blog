@@ -1,8 +1,7 @@
-import BlogItem from 'components/ui/BlogItem'
+import PostPage from 'components/containers/PostPage'
 import {connect } from 'react-redux';
 
 const stateToProps = (state) => {
-    console.log('PostContainer, stateToProps', 'state', state);
     return {
         item: state.post.item,
         isFetching: state.post.isFetching,
@@ -11,4 +10,4 @@ const stateToProps = (state) => {
     }
 };
 
-export default connect(stateToProps)(BlogItem);
+export default connect(stateToProps)(PostPage);

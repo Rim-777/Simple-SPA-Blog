@@ -26,8 +26,6 @@ export default class AboutPage extends Component {
         this._fetchContent()
     }
 
-
-
     render() {
         const {load, header, text} = this.state;
         return (
@@ -37,8 +35,6 @@ export default class AboutPage extends Component {
                 <p>{load && text}</p>
             </div>
         )
-
-
     }
 }
 

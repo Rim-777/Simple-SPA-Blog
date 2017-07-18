@@ -16,7 +16,6 @@ export default function(state = initialState, action = {}){
         case types.FETCH_POST_ERROR:
             return assign({}, initialState, {error: true});
         case types.FETCH_POST_SUCCESS:
-            console.log('POST_REDUCER:',  action.response);
             return assign({}, initialState, {item: action.response});
         default:
             return state;

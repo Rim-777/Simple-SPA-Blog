@@ -11,10 +11,8 @@ import Link from 'components/ui/Link';
 
 import { postsPath } from 'helpers/routes';
 
+const BlogItem = ({item, addLike})=> {
 
-const BlogItem = ({item, addLike, url})=> {
-
-    console.log( item || 'NOT');
     const {
         title,
         metaData: {
@@ -26,10 +24,10 @@ const BlogItem = ({item, addLike, url})=> {
         likes
         } = item || {};
 
-    return (item &&
+    return (
         <Container id={id}>
             <Author firstName={firstName} lastName={lastName}/>
-            <Link to={url}><TextBox title={title}/></Link>
+            <Link to={postsPath(id)}><TextBox title={title}/></Link>
             <Image {...pick(image, ['src', 'width', 'style'])} />
             <Likes amount={likes} addLike={addLike} itemId={id}/>
             <Timestamps createdAt={createdAt} updatedAt={updatedAt}/>

@@ -20,7 +20,6 @@ export function fetchPosts() {
     return (dispatch) => {
         dispatch(fetchPostsRequest());
 
-
         return request
             .get(`${API_ROOT}/`)
             .end((err, response)=> {

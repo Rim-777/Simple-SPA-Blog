@@ -31,7 +31,7 @@ const  listenParams = (location, action) => {
 
     routes.some(route => {
         const match = matchPath(location.pathname, route);
-        console.log('matchBefor', match);
+        console.log('matchBefore', match);
         if (match) {
             console.log('matchAfter', match);
             state.routes.push(route);
