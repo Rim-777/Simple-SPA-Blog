@@ -22,6 +22,7 @@ const MainLayout = ({children}) =>(
                     </FooterLinkList>
                 </FooterSection>
             </Footer>
+
         </Layout>
 );
 
