@@ -14,7 +14,7 @@ const PostPageRoute = {
         //<PostContainer/>
     //),
     prepareData: (store, query, params)=>{
-        console.log('PostPageRoute' , 'PARAMS:', params);
+        console.log('PostPageRoute');
         store.dispatch(fetchPost(params.id))
     }
 };
