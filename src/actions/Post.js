@@ -1,7 +1,7 @@
 import * as types from 'constants/actionTypes/PostActionTypes';
 import request from 'superagent';
-
 import {API_ROOT} from 'constants/API';
+
 
 const fetchPostRequest = (id) => {
     return {
@@ -17,20 +17,10 @@ const receivePost = (response) => {
     }
 };
 
+
 const errorPost = () => {
     return {
         type: types.FETCH_POST_ERROR
-    }
-};
-
-
-export const addLike = (id) => {
-    return (dispatch) => {
-        return request
-            .put(`${API_ROOT}/likes/${id}/${false}`)
-            .end((err, response)=> {
-                err ? dispatch(errorPost()) : dispatch(receivePost(response.body))
-            })
     }
 };
 

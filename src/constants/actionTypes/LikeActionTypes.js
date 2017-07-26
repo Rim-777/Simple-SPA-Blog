@@ -1,0 +1,2 @@
+export const ADD_LIKE_SUCCESS = 'ADD_LIKE_SUCCESS';
+export const ADD_LIKE_ERROR = 'ADD_LIKE_ERROR';

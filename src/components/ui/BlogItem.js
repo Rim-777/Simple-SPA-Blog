@@ -5,13 +5,12 @@ import Container from './Container';
 import Author from './Author';
 import TextBox from './TextBox';
 import Image from './Image';
-import Likes from './Likes';
 import Timestamps from './Timestamps';
 import Link from 'components/ui/Link';
-
+import LikesContainer from 'containers/LikesContainer';
 import { postsPath } from 'helpers/routes';
 
-const BlogItem = ({item, addLike})=> {
+const BlogItem = ({item})=> {
 
     const {
         title,
@@ -21,7 +20,6 @@ const BlogItem = ({item, addLike})=> {
             timestamps: { createdAt, updatedAt } = {},
             },
         image,
-        likes
         } = item || {};
 
     return (
@@ -29,7 +27,7 @@ const BlogItem = ({item, addLike})=> {
             <Author firstName={firstName} lastName={lastName}/>
             <Link to={postsPath(id)}><TextBox title={title}/></Link>
             <Image {...pick(image, ['src', 'width', 'style'])} />
-            <Likes amount={likes} addLike={addLike} itemId={id}/>
+            <LikesContainer  itemId={id}/>
             <Timestamps createdAt={createdAt} updatedAt={updatedAt}/>
 
             <br/>

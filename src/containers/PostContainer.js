@@ -1,7 +1,7 @@
 import PostPage from 'components/containers/PostPage'
 import {connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {addLike} from 'actions/Post';
+import {addLike} from 'actions/Like';
 
 
 const actionToProps = (dispatch) => {

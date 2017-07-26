@@ -1,15 +1,6 @@
 import BlogList from 'components/ui/BlogList'
 import {connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {addLike} from 'actions/Posts';
-
-
-const actionToProps = (dispatch) => {
-    return {
-        addLike: bindActionCreators(addLike, dispatch)
-    }
-};
-
 
 const stateToProps = (state) => ({
     items: state.posts.items,
@@ -18,5 +9,4 @@ const stateToProps = (state) => ({
 
 });
 
-
-export default  connect(stateToProps, actionToProps)(BlogList);
+export default  connect(stateToProps)(BlogList);

@@ -7,21 +7,14 @@ import createHistory from 'history/createBrowserHistory';
 import setRoutes from 'routes';
 import RouteWithSubRoutes from 'helpers/routes/RouteWithSubRoutes';
 import history from 'helpers/history'
-
 import { assign } from 'lodash/object';
-
 import DevTools from 'containers/DevTools'
-
 import { parse } from 'qs';
-
-const routes = setRoutes();
-
 import {Provider} from  'react-redux';
-
 import store from 'store';
-
 import prepareData from 'helpers/prepareData';
 
+const routes = setRoutes();
 
 const  listenParams = (location) => {
     const state = { location, params: {}, routes: [], query: {}};
