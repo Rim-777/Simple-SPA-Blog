@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 import AboutPage from 'components/containers/AboutPage';
 
 const AboutPageRoute = {
@@ -8,6 +6,5 @@ const AboutPageRoute = {
     path: '/about',
     component: AboutPage
 };
-
 
 export default AboutPageRoute

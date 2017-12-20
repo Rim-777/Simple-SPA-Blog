@@ -2,13 +2,11 @@ import {assign} from 'lodash';
 import * as types from 'constants/actionTypes/PostActionTypes';
 import * as likeTypes from 'constants/actionTypes/LikeActionTypes';
 
-
 const initialState = {
     isFetching: false,
     error: false,
     item: null
 };
-
 
 export default function(state = initialState, action = {}){
     switch(action.type){
@@ -27,6 +25,4 @@ export default function(state = initialState, action = {}){
         default:
             return state;
     }
-
 }
-

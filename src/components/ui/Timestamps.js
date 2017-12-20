@@ -4,10 +4,11 @@ import moment from 'moment';
 
 
 const  Timestamps  = ({createdAt, updatedAt }) =>{
+  
    const _formatDate = (date) =>  {
         return (date && moment(date).format('MM/DD/YYYY hh:mm'))
     };
-
+   
         return (
             <div style={{fontSize: '0.7em'}}>
            <span>
@@ -21,11 +22,9 @@ const  Timestamps  = ({createdAt, updatedAt }) =>{
         );
 };
 
-
 Timestamps.propTypes = {
     createdAt: PropTypes.string.isRequired,
     updatedAt: PropTypes.string
 };
-
 
 export default  Timestamps;

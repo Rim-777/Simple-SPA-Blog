@@ -8,7 +8,6 @@ const PostPage = (props) => {
 
 export default PostPage;
 
-
 PostPage.propTypes = {
     item: PropTypes.object
 };

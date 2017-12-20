@@ -1,10 +1,7 @@
 import React, {PropTypes} from 'react'
 import Link from 'components/ui/Link';
-
 import {rootPath} from 'helpers/routes'
-
 import {Layout, Header, Footer, Navigation, FooterSection, FooterLinkList} from 'react-mdl';
-
 
 const MainLayout = ({children}) =>(
         <Layout fixedHeader style={{  backgroundColor: 'white' }} >
@@ -27,10 +24,8 @@ const MainLayout = ({children}) =>(
         </Layout>
 );
 
-
 MainLayout.propTypes = {
     children: PropTypes.node
 };
 
 export  default MainLayout;
-

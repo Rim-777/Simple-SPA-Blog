@@ -14,7 +14,6 @@ const BlogList = ({items, addLike}) => {
             }
         </ul>
     )
-
 };
 
 export default BlogList;

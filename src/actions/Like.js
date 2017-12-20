@@ -1,6 +1,5 @@
 import * as types from 'constants/actionTypes/LikeActionTypes';
 import request from 'superagent';
-
 import {API_ROOT} from 'constants/API';
 
 const receiveLikes = (response) => {

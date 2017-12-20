@@ -4,8 +4,6 @@ const config = require('../../webpack.config');
 const host = 'localhost';
 const port = 5000;
 
-
-
 const server = new webpackDevServer(webpack(config), {
     hot: true,
     historyApiFallback: true,
@@ -13,7 +11,6 @@ const server = new webpackDevServer(webpack(config), {
     stats: {
         color: true
     }
-
 });
 
 server.listen(port, host, (err)=> {

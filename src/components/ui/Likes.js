@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'react-mdl/lib/Button';
 
-
 const Likes = ({addLike, itemId, amount}) =>{
 
     return(
@@ -13,7 +12,6 @@ const Likes = ({addLike, itemId, amount}) =>{
         </Button>
     )
 };
-
 
 Likes.propTypes = {
     amount: React.PropTypes.number.isRequired

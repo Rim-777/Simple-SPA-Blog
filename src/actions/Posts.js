@@ -2,7 +2,6 @@ import * as types from 'constants/actionTypes/PostsActionTypes';
 import request from 'superagent';
 import {API_ROOT} from 'constants/API';
 
-
 const fetchPostsRequest = () =>({
     type: types.FETCH_POSTS_REQUEST
 });
@@ -28,4 +27,3 @@ export function fetchPosts() {
         )
     };
 }
-

@@ -35,7 +35,6 @@ const BlogItem = ({item})=> {
     )
 };
 
-
 BlogItem.propTypes = {
     item: PropTypes.shape({
         metaData: PropTypes.shape({
@@ -49,7 +48,3 @@ BlogItem.propTypes = {
 };
 
 export default BlogItem;
-
-
-
-

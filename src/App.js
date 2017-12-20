@@ -13,7 +13,6 @@ import { parse } from 'qs';
 import {Provider} from  'react-redux';
 import store from 'store';
 import prepareData from 'helpers/prepareData';
-
 const routes = setRoutes();
 
 const  listenParams = (location) => {
@@ -37,7 +36,6 @@ listenParams(window.location);
 class App extends Component  {
 
     render(){
-
         history.listen(listenParams);
 
         return (
@@ -57,7 +55,6 @@ class App extends Component  {
         )
     }
 }
-
 
 ReactDOM.render(
     <DevTools store={store}/>,

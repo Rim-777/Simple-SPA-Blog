@@ -1,12 +1,10 @@
 import React, {Component} from 'react'
 import Link from 'components/ui/Link';
 
-
 export default class PageNumerator extends Component {
 
     constructor(props) {
         super(props);
-
         this._getEdgeButtonsRout = this._getEdgeButtonsRout.bind(this);
         this._setButtons = this._setButtons.bind(this);
 
@@ -25,13 +23,11 @@ export default class PageNumerator extends Component {
         }
         )
     }
-
-
+    
     componentWillMount(){
         this.setState({firstButton: 1 })
     }
-
-
+    
     componentDidUpdate() {
         const {pageNumber} = this.props;
         const {buttonsAmount, firstButton} = this.state;
@@ -42,8 +38,7 @@ export default class PageNumerator extends Component {
             this.setState({firstButton: firstButton - buttonsAmount})
         }
     }
-
-
+    
     _setButtons() {
         const {firstButton, buttonsAmount} = this.state;
         const {pagesAmount, pageNumber} = this.props;

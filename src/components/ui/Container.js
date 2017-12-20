@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Container = ({children, id}) => (
     <div id={id}
          className='blogItem'

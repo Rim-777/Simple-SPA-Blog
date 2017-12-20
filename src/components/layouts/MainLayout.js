@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react'
 
 import {Layout, Header, Footer, Navigation, FooterSection, FooterLinkList} from 'react-mdl';
 
-
 const MainLayout = ({children}) =>(
 
         <Layout fixedHeader style={{  backgroundColor: 'white' }} >
@@ -27,7 +26,6 @@ const MainLayout = ({children}) =>(
         </Layout>
 
 );
-
 
 MainLayout.propTypes = {
     children: PropTypes.node

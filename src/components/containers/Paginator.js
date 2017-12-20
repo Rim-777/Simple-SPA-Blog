@@ -20,13 +20,11 @@ export default  class Paginator extends Component {
         return items.length % limit == 0 ? amount : amount + 1;
     }
 
-
     _definePageData() {
         const {pageNumber, items} = this.props;
         const {limit} = this.state;
         return items.slice(pageNumber * limit - limit, pageNumber * limit);
     }
-
 
     render() {
         return (

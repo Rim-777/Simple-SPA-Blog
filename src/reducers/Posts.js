@@ -2,13 +2,11 @@ import {assign} from 'lodash';
 import * as types from 'constants/actionTypes/PostsActionTypes';
 import * as likeTypes from 'constants/actionTypes/LikeActionTypes';
 
-
 const initialState = {
     isFetching: false,
     error: false,
     items: []
 };
-
 
 export default function(state = initialState, action = {}){
     switch(action.type){
